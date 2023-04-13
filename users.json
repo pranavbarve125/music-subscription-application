@@ -1,0 +1,71 @@
+{
+    "users" : [
+        {
+            
+            "email" : "s38523940@student.rmit.edu.au",
+            "password" : "012345",
+            "username" : "pranavbarve0"
+            
+        },
+        {
+            
+            "email" : "s38523951@student.rmit.edu.au",
+            "password" : "123456",
+            "username" : "johndoe1"
+        },
+        {
+            
+            "email" : "s38523962@student.rmit.edu.au",
+            "password" : "234567",
+            "username" : "sureshkumar2"
+            
+        },
+        {
+            
+            "email" : "s38523973@student.rmit.edu.au",
+            "password" : "345678",
+            "username" : "ramukaka3"
+            
+        },
+        {
+            
+            "email" : "s38523984@student.rmit.edu.au",
+            "password" : "456789",
+            "username" : "adityachopra4"
+            
+        },
+        {
+            
+            "email" : "s38523995@student.rmit.edu.au",
+            "password" : "567890",
+            "username" : "adityabajaj5"
+            
+        },
+        {
+            
+            "email" : "s38523906@student.rmit.edu.au",
+            "password" : "678901",
+            "username" : "narendramodi6"
+            
+        },
+        {
+            
+            "email" : "s38523917@student.rmit.edu.au",
+            "password" : "789012",
+            "username" : "amitshah7"
+            
+        },
+        {
+            
+            "email" : "s38523928@student.rmit.edu.au",
+            "password" : "890123",
+            "username" : "rahulgandhi8"
+        },
+        {
+            
+            "email" : "s38523939@student.rmit.edu.au",
+            "password" : "901234",
+            "username" : "indiragandhi9"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+        .container {
+            padding: 10px;
+            border: 1px ;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+          }
+    </style>
+    <script>
+        {% if message %}
+        alert("{{ message }}");
+        {% endif %}
+    </script>
+    </head>
+  <body>
+    <div class="container">
+      <h2>Register Page</h2>
+      <form action="/register" method="post">
+        <label for="firstname"><b>Username : </b></label>
+        <input type="text" placeholder="Enter First Name" name="username" required>
+        <br><br>
+        <label for="email"><b>Email : </b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <br><br>
+        <label for="password"><b>Password : </b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <br><br>
+        <label for="rpassword"><b>Confirm Password : </b></label>
+        <input type="password" placeholder="Confirm Password" name="rpassword" required>
+        <br><br>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </body>
+</html>

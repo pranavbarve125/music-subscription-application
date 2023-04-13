@@ -1,0 +1,91 @@
+<html>
+<head>
+</head>
+<style>
+    .container {
+        padding: 10px;
+        border: 1px ;
+        text-align: center;
+    }
+
+    .box {
+        margin: auto;
+        width: 80%;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid;
+    }
+
+    .song{
+        margin: auto;
+        width: 40%;
+        padding: 10px;
+        border: 3px solid #ccc;
+        text-align: center;
+        align-items: center;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+      }
+</style>
+<script>
+    {% if message %}
+    alert("{{ message }}");
+    {% endif %}
+</script>
+<body>
+    <div class="box"> 
+        <h2>Welcome {{username}}</h2> <br>
+        <h3>Subscription Area</h3><br>
+        <div class="container">   
+            {% if songs %}
+                <form action="/remove" method="POST">
+                    {%for song in songs%}
+                        <div class = "song">
+                            <img src={{ song['img_url'] }} alt="JPG Image" height=50 width=50>
+                            <b>Artist</b> : {{ song['artist'] }} | <b>Title</b> : {{ song['title'] }} | <b>Year:</b> {{ song['year'] }}   
+                            <button type="submit" name="{{ song['artist'] }}" value="{{ song['title'] }}">Remove</button><br><br>
+                        </div>
+                    {% endfor %}
+                </form>    
+            {% else %}
+                No songs subscribed by the user.
+            {% endif %}      
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <h3>Query Area</h3><br>
+        <form action="/query" method="POST">
+            <label for="title"><b>Title : </b></label>
+            <input type="text" placeholder="Enter title" name="title" value="">
+            <br><br>
+            <label for="year"><b>Year : </b></label>
+            <input type="text" placeholder="Enter year" name="year" value="">
+            <br><br>
+            <label for="artist"><b>Artist : </b></label>
+            <input type="text" placeholder="Enter artist" name="artist" value="">
+            <br><br>
+            <button type="submit">Query</button>
+        </form>
+    </div>
+    {% if query_data %}
+        <div class="box">
+            <form action="/subscribe" method="POST">
+                {%for song in query_data%}
+                    <div class = "song">
+                        <img src={{ song['img_url'] }} alt="JPG Image" height=50 width=50>
+                        <b>Artist</b> : {{ song['artist'] }} | <b>Title</b> : {{ song['title'] }} | <b>Year:</b> {{ song['year'] }}   
+                        <button type="submit" name="{{ song['artist'] }}" value="{{ song['title'] }}">Subscribe</button><br><br>
+                    </div>
+                {% endfor %}
+            </form>
+        </div>
+    {% endif %}
+    <div class="container"><a href = {{ url_for('login_endpoint') }}>LogOut</a> </div>
+
+</body>
+</html>

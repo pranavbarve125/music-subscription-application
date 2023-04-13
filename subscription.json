@@ -1,0 +1,34 @@
+{
+    "subscriptions" : [
+        {
+            "email" : "s38523940@student.rmit.edu.au",
+            "title" : "American Pie",
+            "artist" : "Don McLean"
+        },
+        {
+            "email" : "s38523940@student.rmit.edu.au",
+            "title" : "American Music",
+            "artist" : "Violent Femmes" 
+        },
+        {
+            "email" : "s38523940@student.rmit.edu.au",
+            "title" : "And it Stoned Me",
+            "artist" : "Van Morrison"
+        },
+        {
+            "email" : "s38523951@student.rmit.edu.au",
+            "title" : "A Sailor's Christmas",
+            "artist" : "Jimmy Buffett"
+        },
+        {
+            "email" : "s38523951@student.rmit.edu.au",
+            "title" : "Badfish",
+            "artist" : "Sublime"
+        },
+        {
+            "email" : "s38523962@student.rmit.edu.au",
+            "title" : "Barefoot Children",
+            "artist" : "Jimmy Buffett"
+        }
+    ]
+}
