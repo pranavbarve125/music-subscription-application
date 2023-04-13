@@ -2,10 +2,16 @@ from flask import Flask, render_template, request, session, redirect, url_for, s
 import re
 import json
 import dbconnect
+import logging
+from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
 app.secret_key = 'pran125'
 
+# Configure logging
+handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=1)
+handler.setLevel(logging.ERROR)
+app.logger.addHandler(handler)
 
 @app.route('/')
 def root():
