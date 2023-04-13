@@ -1,15 +1,15 @@
 import boto3
 from boto3.dynamodb.conditions import Attr
+import json
 
-aws_access_key_id="ASIAXRPYQJ5RGT2HEIQE"
-aws_secret_access_key="YD/pzIHu2UIwiFTkaun+AP21mbHvRoBDcTgMCKgT"
-aws_session_token="FwoGZXIvYXdzEK3//////////wEaDHuICJ0m2l8ZXhVxJCLNASdZ581Q09qNmj+ysC5Uf6r2W6FZFU68clKcPFKYdPBMNEPSJGTc07p96yLB80T6ioILItOP97nudq2YlZRXcypowr4Qer2okMXj3allHR1FBTdmFFpYBAqQwk1UevCvSho+yvcctH0Ykp3oKTTiixy6zeXJttJPtOyaD5+ou/CZp/PfReD/ZD5W793FbwNwveQdJTSAPVL6lzHtwTyScGbhg96142xwXb9aoojbirFbiFzeL5MZB5cJ8zmNiKmdKYFdsdQxSczf++aYGkEo7IXOoQYyLUBhyqBMR4vWyEd9eH2e2zUfgNg5/BbBHnazbYYuDbyxG0FmR5tV/kFGL+2cGg=="
+# getting credentials from cres files
+resource_creds = json.load(open('resources.json', 'r'))
 
 # creating a resource
 dynamodb = boto3.resource( 'dynamodb',
-                        aws_access_key_id=aws_access_key_id, 
-                        aws_secret_access_key=aws_secret_access_key, 
-                        aws_session_token=aws_session_token,
+                        aws_access_key_id=resource_creds['aws_access_key_id'],
+                        aws_secret_access_key=resource_creds['aws_secret_access_key'],
+                        aws_session_token=resource_creds['aws_session_token'],
                         region_name='us-east-1') 
 
 login = dynamodb.Table('login')
