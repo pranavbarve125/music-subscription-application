@@ -44,11 +44,13 @@
             {% if songs %}
                 <form action="/remove" method="POST">
                     {%for song in songs%}
-                        <div class = "song">
+                    <div class = "song">
+                        <p>
                             <img src={{ song['img_url'] }} alt="JPG Image" height=50 width=50>
                             <b>Artist</b> : {{ song['artist'] }} | <b>Title</b> : {{ song['title'] }} | <b>Year:</b> {{ song['year'] }}   
-                            <button type="submit" name="{{ song['artist'] }}" value="{{ song['title'] }}">Remove</button><br><br>
-                        </div>
+                        </p>
+                        <div><button type="submit" name="{{ song['artist'] }}" value="{{ song['title'] }}">Remove</button></div>
+                    </div>
                     {% endfor %}
                 </form>    
             {% else %}
@@ -64,7 +66,7 @@
             <input type="text" placeholder="Enter title" name="title" value="">
             <br><br>
             <label for="year"><b>Year : </b></label>
-            <input type="text" placeholder="Enter year" name="year" value="">
+            <input type="number" min="1900" max="2023" placeholder="Enter year" name="year" value="">
             <br><br>
             <label for="artist"><b>Artist : </b></label>
             <input type="text" placeholder="Enter artist" name="artist" value="">
@@ -76,11 +78,13 @@
         <div class="box">
             <form action="/subscribe" method="POST">
                 {%for song in query_data%}
-                    <div class = "song">
+                <div class = "song">
+                    <p>
                         <img src={{ song['img_url'] }} alt="JPG Image" height=50 width=50>
-                        <b>Artist</b> : {{ song['artist'] }} | <b>Title</b> : {{ song['title'] }} | <b>Year:</b> {{ song['year'] }}   
-                        <button type="submit" name="{{ song['artist'] }}" value="{{ song['title'] }}">Subscribe</button><br><br>
-                    </div>
+                        <b>Artist</b> : {{ song['artist'] }} | <b>Title</b> : {{ song['title'] }} | <b>Year:</b> {{ song['year'] }}  
+                    </p>
+                    <div><button type="submit" name="{{ song['artist'] }}" value="{{ song['title'] }}">Subscribe</button></div>
+                </div>
                 {% endfor %}
             </form>
         </div>

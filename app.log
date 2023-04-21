@@ -1,0 +1,49 @@
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 44, in login_endpoint
+    return render_template('main.html', username = session['username'], songs=data)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\templating.py", line 130, in _render
+    rv = template.render(context)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\deployment\templates\main.html", line 77, in top-level template code
+    {% if len(query_data) == 0 %}
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\jinja2\utils.py", line 83, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: 'len' is undefined
+Exception on /query [POST]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 58, in query
+    if len(data) == 0:
+TypeError: object of type 'bool' has no len()
+Exception on /main [GET]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+TypeError: main_endpoint() missing 1 required positional argument: 'username'

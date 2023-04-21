@@ -100,17 +100,17 @@ def get_query(title,artist,year):
     filter_expression = None
     
     if len(title) != 0:
-            filter_expression = Attr('title').eq(title)
+            filter_expression = Attr('title').contains(title)
     if len(artist) != 0:
         if filter_expression is None:
-            filter_expression = Attr('artist').eq(artist)
+            filter_expression = Attr('artist').contains(artist)
         else:
-            filter_expression = filter_expression &  Attr('artist').eq(artist) 
+            filter_expression = filter_expression &  Attr('artist').contains(artist) 
     if len(year) != 0:
         if filter_expression is None:
-            filter_expression = Attr('year').eq(year)
+            filter_expression = Attr('year').contains(year)
         else:
-            filter_expression = filter_expression & Attr('year').eq(year)  
+            filter_expression = filter_expression & Attr('year').contains(year)  
 
     if filter_expression is None:
         return False
@@ -124,8 +124,6 @@ def get_query(title,artist,year):
     # Scan the table with the defined filter expression, expression attribute names, and projection expression
     response = music.scan(FilterExpression=filter_expression, ExpressionAttributeNames=expression_attribute_names, ProjectionExpression=projection_expression)
     
-    
-    print("Response Item : " + str(response['Items']))
     return response['Items']
 
 def remove_subscription(email, title, artist):

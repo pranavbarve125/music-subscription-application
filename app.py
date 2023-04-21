@@ -16,7 +16,7 @@ app.logger.addHandler(handler)
 @app.route('/')
 def root():
     return render_template('login.html')
-
+    
 @app.route('/login', methods=['POST', 'GET'])
 def login_endpoint(): #the endpoint
     if request.method == "POST":
@@ -34,9 +34,11 @@ def login_endpoint(): #the endpoint
             # extract all the records subscribed by the user
             session['email'] = email
             session['username'] = value
+            print(session['username'])
             data = dbconnect.get_subscribed_music(email)
             session['json_to_compare'] = data
             return render_template('main.html', username = session['username'], songs=data) 
+            # return redirect(url_for('main_endpoint', username = session['username'], songs=session['json_to_compare']))
         
     else:
         return render_template('login.html')
@@ -50,12 +52,18 @@ def query(): #using the scan function to get the data
     data = dbconnect.get_query(title,artist,year)
     
     if data == False:
-        print(session['json_to_compare'])
+        # print(session['json_to_compare'])
+        # return redirect(url_for('main_endpoint', username = session['username'], songs=session['json_to_compare'], message="Enter atleast one parameter to search."))
         return render_template('main.html', username = session['username'], songs=session['json_to_compare'], message="Enter atleast one parameter to search.") 
     else:
         query_data = [i for i in data if i not in session['json_to_compare']]
-        print(query_data)
-        return render_template("main.html", username = session['username'], songs=session['json_to_compare'], query_data=query_data)
+        if len(query_data) == 0:
+            return render_template('main.html', username = session['username'], songs=session['json_to_compare'], message="No songs found.") 
+        else:
+            # return redirect(url_for('main_endpoint', username = session['username'], songs=session['json_to_compare'], query_data=query_data))
+            return render_template("main.html", username = session['username'], songs=session['json_to_compare'], query_data=query_data)
+
+
 
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -66,9 +74,14 @@ def register():
         password = request.form["password"]
         rpassword = request.form["rpassword"]
         
+        # validate emails
+        if re.match(r'^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$', email) is None:
+            return render_template("register.html", message="Enter a valid email id.")
+        
         #check if passwords match
         if password != rpassword:
             return render_template("register.html", message="Passwords do not match. Enter again.")
+        
         
         else:
             # enter user in database
@@ -94,11 +107,11 @@ def susbcribe():
     data = dbconnect.get_subscribed_music(session['email'])
     if len(data) != 0:
         session['json_to_compare'] = data
+    # return redirect(url_for('main_endpoint', username = session['username'], songs=session['json_to_compare'], message='Song successfully subscribed.'))
     return render_template('main.html', username = session['username'], songs=session['json_to_compare'], message='Song successfully subscribed.')
 
 @app.route("/remove", methods=['POST'])
 def remove():
-    # print(request.form) #name-value
     data = dict(request.form) # artist : title
     artist = list(data)[0]
     title = data[artist]
@@ -107,6 +120,7 @@ def remove():
     # reloading main page
     data = dbconnect.get_subscribed_music(session['email'])
     session['json_to_compare'] = data
+    # return redirect(url_for('main_endpoint', username = session['username'], songs=session['json_to_compare'], message='Song Removed from subscription.'))
     return render_template('main.html', username = session['username'], songs=session['json_to_compare'], message='Song Removed from subscription.')
 
 if __name__ == '__main__':

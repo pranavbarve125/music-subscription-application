@@ -1,0 +1,103 @@
+Exception on /main [GET]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+TypeError: main_endpoint() missing 1 required positional argument: 'username'
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 32, in login_endpoint
+    value = dbconnect.confirm_login(email,password)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\deployment\dbconnect.py", line 28, in confirm_login
+    response = login.query(**query_params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\factory.py", line 580, in do_action
+    response = action(self, *args, **kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 960, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (AccessDeniedException) when calling the Query operation: User: arn:aws:sts::518601592674:assumed-role/voclabs/user2460319=s3852394@student.rmit.edu.au is not authorized to perform: dynamodb:Query on resource: arn:aws:dynamodb:us-east-1:518601592674:table/login with an explicit deny in an identity-based policy
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 32, in login_endpoint
+    value = dbconnect.confirm_login(email,password)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\deployment\dbconnect.py", line 28, in confirm_login
+    response = login.query(**query_params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\factory.py", line 580, in do_action
+    response = action(self, *args, **kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 960, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (AccessDeniedException) when calling the Query operation: User: arn:aws:sts::518601592674:assumed-role/voclabs/user2460319=s3852394@student.rmit.edu.au is not authorized to perform: dynamodb:Query on resource: arn:aws:dynamodb:us-east-1:518601592674:table/login with an explicit deny in an identity-based policy
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 32, in login_endpoint
+    value = dbconnect.confirm_login(email,password)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\deployment\dbconnect.py", line 28, in confirm_login
+    response = login.query(**query_params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\factory.py", line 580, in do_action
+    response = action(self, *args, **kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 960, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (AccessDeniedException) when calling the Query operation: User: arn:aws:sts::518601592674:assumed-role/voclabs/user2460319=s3852394@student.rmit.edu.au is not authorized to perform: dynamodb:Query on resource: arn:aws:dynamodb:us-east-1:518601592674:table/login with an explicit deny in an identity-based policy
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 32, in login_endpoint
+    value = dbconnect.confirm_login(email,password)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\deployment\dbconnect.py", line 28, in confirm_login
+    response = login.query(**query_params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\factory.py", line 580, in do_action
+    response = action(self, *args, **kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "C:\Users\prana\Desktop\Third Sem\Cloud Computing\Assignment 1\project\lib\site-packages\botocore\client.py", line 960, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (AccessDeniedException) when calling the Query operation: User: arn:aws:sts::518601592674:assumed-role/voclabs/user2460319=s3852394@student.rmit.edu.au is not authorized to perform: dynamodb:Query on resource: arn:aws:dynamodb:us-east-1:518601592674:table/login with an explicit deny in an identity-based policy
